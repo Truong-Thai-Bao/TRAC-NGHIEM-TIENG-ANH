@@ -1,13 +1,22 @@
+
+
 public class DanhMuc {
 
-	private String loaiDanhMuc;
+    private String loaiDanhMuc;
 
-	public String getLoaiDanhMuc() {
-		return null;
-	}
+    /**
+     * @return the loaiDanhMuc
+     */
+    public String getLoaiDanhMuc() {
+        return loaiDanhMuc;
+    }
 
-	public void setLoaiDanhMuc() {
+    /**
+     * @param loaiDanhMuc the loaiDanhMuc to set
+     */
+    public void setLoaiDanhMuc(String loai){
+            this.loaiDanhMuc = loai;
+        }
+        
+    }
 
-	}
-
-}

@@ -2,17 +2,26 @@
 import java.util.List;
 
 public class MultipleChoice extends CauHoi {
+    
+    private DanhMuc danhMuc;
+    private String ghiChu;
 
-	public void noiDungCauHoi() {
+    public MultipleChoice( String noiDung, List<PhuongAn> phuongAn, Do_Kho doKho,DanhMuc danhMuc, String ghiChu) {
+        super(noiDung, phuongAn, doKho);
+        this.danhMuc = danhMuc;
+        this.ghiChu = ghiChu;
+    }
 
-	}
+    
+    @Override
+    public void noiDung() {
+        System.out.println(super.getNoiDung());
+    }
 
-	public boolean isKetQua(List<PhuongAn> phuongAn) {
-		return false;
-	}
+    @Override
+    public void phuongAn() {
+        System.out.println(super.getPhuongAn());
+    }
 
-	public void chonPA(PhuongAn phuongAn) {
-
-	}
 
 }
