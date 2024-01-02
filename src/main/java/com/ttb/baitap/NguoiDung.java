@@ -28,6 +28,11 @@ public class NguoiDung {
         this.ngaySinh = ngaySinh;
         this.ngayGiaNhap = ngayGiaNhap;
     }
+    
+    public String ngaySinhToString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.ngaySinh.format(formatter);
+    }
 
     /**
      * @return the hoTen

@@ -29,7 +29,7 @@ public class QLNguoiDung {
         List<NguoiDung> ketQua = new ArrayList<>();
         for (NguoiDung nguoiDung : ds) {
             if (nguoiDung.getHoTen().contains(s) || nguoiDung.getQueQuan().contains(s)
-                    || nguoiDung.getGioiTinh().contains(s) || nguoiDung.getNgaySinh().toString().contains(s)) {
+                    || nguoiDung.getGioiTinh().contains(s) || nguoiDung.ngaySinhToString().contains(s)) {
                 ketQua.add(nguoiDung);
             }
         }
