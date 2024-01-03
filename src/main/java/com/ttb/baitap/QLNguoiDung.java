@@ -1,14 +1,19 @@
+package com.ttb.baitap;
+
 
 import com.ttb.baitap.CauHinh;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class QLNguoiDung {
 
     private List<NguoiDung> ds;
-    private int choice; 
 
     public QLNguoiDung(List<NguoiDung> ds) {
         this.ds = ds;
@@ -18,26 +23,35 @@ public class QLNguoiDung {
         this.ds = new ArrayList<>();
     }
 
+    public void dSNguoiDung() throws FileNotFoundException{
+        File f = new File("src/main/java/com/ttb/baitap/file/DSNGuoiDung");
+        try(Scanner sc = new Scanner(f)){
+            while(sc.hasNext())
+                this.ds.add(new NguoiDung(sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextLine()));
+        }
+    }
+    
+    
     public void hienThiDSNguoiDung() {
+        if(ds.isEmpty()){
+            System.out.println("Khong tim thay nguoi dung nao");
+            return;
+        }
         for (NguoiDung nguoiDung : ds) {
             nguoiDung.hienThi();
-            System.out.println("");
         }
     }
 
+    
     public List<NguoiDung> traCuu(String s) {
-        List<NguoiDung> ketQua = new ArrayList<>();
-        for (NguoiDung nguoiDung : ds) {
-            if (nguoiDung.getHoTen().contains(s) || nguoiDung.getQueQuan().contains(s)
-                    || nguoiDung.getGioiTinh().contains(s) || nguoiDung.ngaySinhToString().contains(s)) {
-                ketQua.add(nguoiDung);
-            }
-        }
-        return ketQua;
+        return ds.stream().filter(nguoiDung->nguoiDung.getHoTen().toLowerCase().contains(s.toLowerCase()) || 
+                nguoiDung.getQueQuan().toLowerCase().contains(s.toLowerCase())|| 
+                nguoiDung.getGioiTinh().toLowerCase().contains(s.toLowerCase()) || 
+                nguoiDung.ngaySinhToString().equals(s)).collect(Collectors.toList());
     }
 
     public void themNguoiDung(NguoiDung... a) {
-       this.ds.addAll(Arrays.asList(a));
+        this.ds.addAll(Arrays.asList(a));
     }
 
     public void themNguoiHoc() {
@@ -47,10 +61,10 @@ public class QLNguoiDung {
         String queQuan = CauHinh.SC.nextLine();
         System.out.print("Nhap gioi tinh: ");
         String gioiTinh = CauHinh.SC.nextLine();
-        System.out.print("Nhap ngay sinh (yyyy-MM-dd): ");
-        LocalDate ngaySinh = LocalDate.parse(CauHinh.SC.nextLine());
-        System.out.print("Nhap ngay gia nhap (yyyy-MM-dd): ");
-        LocalDate ngayGiaNhap = LocalDate.parse(CauHinh.SC.nextLine());
+        System.out.print("Nhap ngay sinh (dd/MM/yyyy): ");
+        String ngaySinh = CauHinh.SC.nextLine();
+        System.out.print("Nhap ngay gia nhap (dd/MM/yyyy): ");
+        String ngayGiaNhap = CauHinh.SC.nextLine();
 
         NguoiDung nguoiDung = new NguoiDung(hoTen, queQuan, gioiTinh, ngaySinh, ngayGiaNhap);
         ds.add(nguoiDung);
@@ -86,7 +100,7 @@ public class QLNguoiDung {
                 System.out.println("4. Ngay sinh");
                 System.out.println("5. Ngay gia nhap");
                 
-                choice = CauHinh.SC.nextInt();
+                int choice = Integer.parseInt(CauHinh.SC.nextLine());
                 
                 switch (choice) {
                     case 1 -> {
@@ -126,6 +140,20 @@ public class QLNguoiDung {
             }
         }
         
+    }
+
+    /**
+     * @return the ds
+     */
+    public List<NguoiDung> getDs() {
+        return ds;
+    }
+
+    /**
+     * @param ds the ds to set
+     */
+    public void setDs(List<NguoiDung> ds) {
+        this.ds = ds;
     }
 
 }

@@ -1,5 +1,10 @@
+package com.ttb.baitap;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class NguoiDung {
 
@@ -17,8 +22,8 @@ public class NguoiDung {
         System.out.println("Ho ten: " + getHoTen());
         System.out.println("Que quan: " + getQueQuan());
         System.out.println("Gioi tinh: " + getGioiTinh());
-        System.out.println("Ngay sinh: " + getNgaySinh().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        System.out.println("Ngay gia nhap: " + getNgayGiaNhap().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        System.out.println("Ngay sinh: " + getNgaySinh().format(DateTimeFormatter.ofPattern(CauHinh.TIME)));
+        System.out.println("Ngay gia nhap: " + getNgayGiaNhap().format(DateTimeFormatter.ofPattern(CauHinh.TIME)));
     }
 
     public NguoiDung(String hoTen, String queQuan, String gioiTinh, LocalDate ngaySinh, LocalDate ngayGiaNhap) {
@@ -28,9 +33,14 @@ public class NguoiDung {
         this.ngaySinh = ngaySinh;
         this.ngayGiaNhap = ngayGiaNhap;
     }
+    public NguoiDung(String hoTen, String queQuan, String gioiTinh, String ngaySinh, String ngayGiaNhap) {
+        this(hoTen, queQuan, gioiTinh,LocalDate.parse( ngaySinh,DateTimeFormatter.ofPattern(CauHinh.TIME)), 
+                LocalDate.parse( ngayGiaNhap,DateTimeFormatter.ofPattern(CauHinh.TIME)));
+    }
+    
     
     public String ngaySinhToString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CauHinh.TIME);
         return this.ngaySinh.format(formatter);
     }
 
