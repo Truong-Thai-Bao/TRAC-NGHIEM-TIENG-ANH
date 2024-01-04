@@ -18,6 +18,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         int choice;
         QLNguoiDung qlnd = new QLNguoiDung();
+        QLNguoiDung traCuu = new QLNguoiDung();
         do {
             System.out.println("MENU");
             System.out.println("1. Quan ly nguoi hoc");
@@ -59,15 +60,24 @@ public class Main {
                                     switch (choice12) {
                                         case 1 -> {
                                             System.out.print("Nhap ho ten: ");
-                                            qlnd.setDs(qlnd.traCuu(CauHinh.SC.nextLine()));
-                                            qlnd.hienThiDSNguoiDung();
+                                            traCuu.setDs(qlnd.traCuu(CauHinh.SC.nextLine()));
+                                            traCuu.hienThiDSNguoiDung();
                                             break;
                                         }
                                         case 2 -> {
+                                            System.out.print("Nhap gioi tinh: ");
+                                            traCuu.setDs(qlnd.traCuu(CauHinh.SC.nextLine()));
+                                            traCuu.hienThiDSNguoiDung();
                                         }
                                         case 3 -> {
+                                            System.out.print("Nhap ngay sinh: ");
+                                            traCuu.setDs(qlnd.traCuu(CauHinh.SC.nextLine()));
+                                            traCuu.hienThiDSNguoiDung();
                                         }
                                         case 4 -> {
+                                            System.out.print("Nhap que quan: ");
+                                            traCuu.setDs(qlnd.traCuu(CauHinh.SC.nextLine()));
+                                            traCuu.hienThiDSNguoiDung();
                                         }
                                         case 0 ->
                                             System.out.println("Ket thuc tra cuu nguoi hoc.");
@@ -77,11 +87,25 @@ public class Main {
                                 } while (choice12 != 0);
                             }
                             case 3 -> {
-
+                                System.out.println("Them nguoi hoc: ");
+                                qlnd.themNguoiHoc();
+                                
                             }
                             case 4 -> {
+                                System.out.println("Cap nhat thong tin nguoi hoc: ");
+                                System.out.print("Nhap ten nguoi hoc muon cap nhat: ");
+                                String ten = CauHinh.SC.nextLine();
+                                qlnd.capNhatThongTin(ten);
+                                qlnd.setDs(qlnd.getDs());
+                                qlnd.ghiNguoiDungVaoFile();
                             }
                             case 5 -> {
+                                System.out.println("Xoa nguoi hoc: ");
+                                System.out.print("Nhap ten nguoi hoc muon xoa: ");
+                                String ten = CauHinh.SC.nextLine();
+                                qlnd.xoaNguoiDung(ten);
+                                qlnd.setDs(qlnd.getDs());
+                                qlnd.ghiNguoiDungVaoFile();
                             }
                             case 0 ->
                                 System.out.println("Ket thuc quan ly nguoi hoc.");

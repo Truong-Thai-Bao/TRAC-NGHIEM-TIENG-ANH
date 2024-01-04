@@ -43,6 +43,11 @@ public class NguoiDung {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CauHinh.TIME);
         return this.ngaySinh.format(formatter);
     }
+    
+    public String ngayGiaNhapToString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CauHinh.TIME);
+        return this.ngayGiaNhap.format(formatter);
+    }
 
     /**
      * @return the hoTen
