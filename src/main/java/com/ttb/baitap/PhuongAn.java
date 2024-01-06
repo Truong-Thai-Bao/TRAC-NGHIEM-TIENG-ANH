@@ -5,13 +5,26 @@ public class PhuongAn {
 
     private String noiDungPA;
 
-    private boolean pADung=false;
+    private String pADung;
 
-
-    public void hienThiPA() {
-        System.out.printf("%s ",this.noiDungPA);
+    public PhuongAn(String noiDungPA, String pADung) {
+        this.noiDungPA = noiDungPA;
+        this.pADung = pADung;
     }
 
+  
+
+    public PhuongAn() {
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", this.noiDungPA);
+    }
+
+
+    
+    
     /**
      * @return the noiDungPA
      */
@@ -29,13 +42,18 @@ public class PhuongAn {
     /**
      * @return the pADung
      */
-    public boolean ispADung() {
+    public String getpADung() {
         return pADung;
     }
 
-    public void setpADung() {
-        this.pADung = true;
+    /**
+     * @param pADung the pADung to set
+     */
+    public void setpADung(String pADung) {
+        this.pADung = pADung;
     }
+
+
 
 
 }

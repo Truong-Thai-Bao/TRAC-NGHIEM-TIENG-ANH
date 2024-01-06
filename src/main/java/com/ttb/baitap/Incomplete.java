@@ -5,14 +5,16 @@ import java.util.List;
 
 public class Incomplete extends CauHoi {
 
+
+
     @Override
-    public void noiDung() {
+    public void phuongAn() {
         
     }
 
     @Override
-    public void phuongAn() {
-     
+    public void hienThi() {
+        
     }
 
     

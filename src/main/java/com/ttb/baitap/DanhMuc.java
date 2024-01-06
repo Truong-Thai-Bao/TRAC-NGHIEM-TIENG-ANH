@@ -6,6 +6,19 @@ public class DanhMuc {
 
     private String loaiDanhMuc;
 
+    public DanhMuc(String loaiDanhMuc) {
+        this.loaiDanhMuc = loaiDanhMuc;
+    }
+
+    public DanhMuc() {
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", this.loaiDanhMuc);
+    }
+
+    
     /**
      * @return the loaiDanhMuc
      */
