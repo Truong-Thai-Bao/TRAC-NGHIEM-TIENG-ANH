@@ -1,36 +1,22 @@
-package com.ttb.baitap;
 
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class MultipleChoice extends CauHoi {
     
     private DanhMuc danhMuc;
     private String ghiChu;
-    private static int dem;
-    public MultipleChoice() {
-        super(null, null, null);
-    }
 
-    
-    public MultipleChoice( String noiDung, PhuongAn phuongAn, Do_Kho doKho, DanhMuc danhMuc, String ghiChu) {
+    public MultipleChoice( String noiDung, List<PhuongAn> phuongAn, Do_Kho doKho,DanhMuc danhMuc, String ghiChu) {
         super(noiDung, phuongAn, doKho);
         this.danhMuc = danhMuc;
         this.ghiChu = ghiChu;
     }
 
     
-    
     @Override
-    public void hienThi(){
-        System.out.printf("%d. %s\n%s\n\n",++dem,super.getNoiDung(),super.getPhuongAn());
+    public void noiDung() {
+        System.out.println(super.getNoiDung());
     }
-    
-
 
     @Override
     public void phuongAn() {
@@ -64,5 +50,6 @@ public class MultipleChoice extends CauHoi {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
+
 
 }

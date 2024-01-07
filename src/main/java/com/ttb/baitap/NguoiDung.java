@@ -1,10 +1,6 @@
-package com.ttb.baitap;
-
-import java.io.File;
-import java.io.FileNotFoundException;
+import com.ttb.baitap.CauHinh;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 public class NguoiDung {
 
@@ -34,19 +30,13 @@ public class NguoiDung {
         this.ngayGiaNhap = ngayGiaNhap;
     }
     public NguoiDung(String hoTen, String queQuan, String gioiTinh, String ngaySinh, String ngayGiaNhap) {
-        this(hoTen, queQuan, gioiTinh,LocalDate.parse( ngaySinh,DateTimeFormatter.ofPattern(CauHinh.TIME)), 
-                LocalDate.parse( ngayGiaNhap,DateTimeFormatter.ofPattern(CauHinh.TIME)));
+       this(hoTen, queQuan, gioiTinh, LocalDate.parse(ngaySinh,DateTimeFormatter.ofPattern(CauHinh.TIME)),  
+               LocalDate.parse(ngayGiaNhap,DateTimeFormatter.ofPattern(CauHinh.TIME)));
     }
-    
     
     public String ngaySinhToString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CauHinh.TIME);
         return this.ngaySinh.format(formatter);
-    }
-    
-    public String ngayGiaNhapToString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CauHinh.TIME);
-        return this.ngayGiaNhap.format(formatter);
     }
 
     /**

@@ -1,5 +1,3 @@
-package com.ttb.baitap;
-
 
 
 public class DanhMuc {
@@ -9,15 +7,6 @@ public class DanhMuc {
     public DanhMuc(String loaiDanhMuc) {
         this.loaiDanhMuc = loaiDanhMuc;
     }
-
-    public DanhMuc() {
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s", this.loaiDanhMuc);
-    }
-
     
     /**
      * @return the loaiDanhMuc
@@ -32,6 +21,5 @@ public class DanhMuc {
     public void setLoaiDanhMuc(String loai){
             this.loaiDanhMuc = loai;
         }
-        
-    }
+}
 

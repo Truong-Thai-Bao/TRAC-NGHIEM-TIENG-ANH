@@ -1,27 +1,22 @@
-package com.ttb.baitap;
-
 
 import java.util.List;
-
 
 public abstract class CauHoi {
 
     private String noiDung;
-    private PhuongAn phuongAn;
+    private List<PhuongAn> phuongAn;
     private Do_Kho doKho;
-    
-    public abstract void hienThi();
+
+    public abstract void noiDung();
+
     public abstract void phuongAn();
-    
-       
-    public CauHoi(String noiDung, PhuongAn phuongAn, Do_Kho doKho) {
+
+    public CauHoi(String noiDung, List<PhuongAn> phuongAn, Do_Kho doKho) {
         this.noiDung = noiDung;
         this.phuongAn = phuongAn;
         this.doKho = doKho;
     }
 
-    
-    
     /**
      * @return the noiDung
      */
@@ -39,7 +34,16 @@ public abstract class CauHoi {
     /**
      * @return the phuonAn
      */
-    
+    public List<PhuongAn> getPhuongAn() {
+        return phuongAn;
+    }
+
+    /**
+     * @param phuonAn the phuonAn to set
+     */
+    public void setPhuongAn(List<PhuongAn> phuongAn) {
+        this.phuongAn = phuongAn;
+    }
 
     /**
      * @return the doKho
@@ -54,24 +58,5 @@ public abstract class CauHoi {
     public void setDoKho(Do_Kho doKho) {
         this.doKho = doKho;
     }
-
-    /**
-     * @return the phuongAn
-     */
-    public PhuongAn getPhuongAn() {
-        return phuongAn;
-    }
-
-    /**
-     * @param phuongAn the phuongAn to set
-     */
-    public void setPhuongAn(PhuongAn phuongAn) {
-        this.phuongAn = phuongAn;
-    }
-
-
-   
-
-    
 
 }
