@@ -18,10 +18,12 @@ public class QLCauHoi {
 
 	public List<CauHoi> timCauHoi(String noiDung) {
             return getDs().stream().filter(c->c.getNoiDung().toLowerCase().contains(noiDung.toLowerCase())).collect(Collectors.toList());
+
 	}
 
 	public List<CauHoi> timCauHoi(Do_Kho doKho) {
             return getDs().stream().filter(c->c.getDoKho().equals(doKho)).collect(Collectors.toList());
+
 	}
 
 	public List<CauHoi> timCauHoi(DanhMuc danhMuc) {
@@ -67,7 +69,7 @@ public class QLCauHoi {
         
 	public void hienThiDsCauHoi() {
             getDs().forEach(c->c.hienThi());
-	}
+                }
 
     /**
      * @return the ds
@@ -82,5 +84,7 @@ public class QLCauHoi {
     public void setDs(List<CauHoi> ds) {
         this.ds = ds;
     }
-
 }
+    
+
+
